@@ -7,6 +7,7 @@ import styles from "./Home.module.css";
 import { useTranslation } from "react-i18next";
 import { useAppDispatch, useAppSelector } from '../../app/hooks'
 // import { incremented } from '../../features/counter/counter-slice'
+import { useFetchBreedsQuery } from '../../features/dogs/dogs-api-slice';
 
 interface HomeProps {}
 
@@ -14,6 +15,7 @@ const Home: FC<HomeProps> = () => {
   const { t, i18n } = useTranslation();
   const value = useAppSelector((state) => state.counter.value)
   const dispatch = useAppDispatch()
+  const { data, isFetching } = useFetchBreedsQuery()
   const handleClick = () => {
     // dispatch(incremented());
   }
@@ -33,6 +35,7 @@ const Home: FC<HomeProps> = () => {
               <p>
                 <button onClick={handleClick}>Count is {value}</button>
               </p>
+              <div>Number of dogs is : {data?.length}</div>
             </Grid>
           </Grid>
         </Grid>
