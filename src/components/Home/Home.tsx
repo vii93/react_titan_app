@@ -1,26 +1,32 @@
 import { Grid } from "@mui/material";
-import React, { FC, useState } from "react";
+import React, { FC, useEffect, useState } from "react";
 import Footer from "../Footer/Footer";
 import Header from "../Header/Header";
 import MenuBar from "../MenuBar/MenuBar";
 import styles from "./Home.module.css";
 import { useTranslation } from "react-i18next";
-import { useAppDispatch, useAppSelector } from '../../app/hooks'
+import { useAppSelector } from '../../app/hooks'
 // import { incremented } from '../../features/counter/counter-slice'
 import { useFetchBreedsQuery } from '../../features/dogs/dogs-api-slice';
 
 interface HomeProps {}
 
 const Home: FC<HomeProps> = () => {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
   const value = useAppSelector((state) => state.counter.value)
-  const dispatch = useAppDispatch()
+  // const dispatch = useAppDispatch()
   const [size, setSize] = useState(10)
-  const { data, isFetching } = useFetchBreedsQuery(size)
+  const { data } = useFetchBreedsQuery(size)
+
+  useEffect(() => {
+    console.log("kkkkkkkkkkk   ||")
+    console.log(data)
+  }, [data])
   const handleClick = () => {
     // dispatch(incremented());
   }
   const changeSize = (size: any) => {
+    console.log("dddddd   ||", size.target.value)
     setSize(size.target.value)
   }
   return (
@@ -39,10 +45,13 @@ const Home: FC<HomeProps> = () => {
               <p>
                 <button onClick={handleClick}>Count is {value}</button>
               </p>
+              <p>
+              <small>hello friend there is what i learn in react</small>
+              </p>
               <select name="sizePage" id="dogs-size" onChange={changeSize}>
                 <option value="5">5</option>
-                <option value="5">10</option>
-                <option value="5">20</option>
+                <option value="10">10</option>
+                <option value="20">20</option>
               </select>
               <div>Number of dogs is : {data?.length}</div>
             </Grid>

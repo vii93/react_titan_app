@@ -1,5 +1,5 @@
 import { Grid } from "@mui/material";
-import React, { FC, useState } from "react";
+import React, { FC, useEffect, useState } from "react";
 import styles from "./Header.module.css";
 import { useTranslation } from "react-i18next";
 
@@ -7,13 +7,14 @@ import { useTranslation } from "react-i18next";
 interface HeaderProps {}
 
 const Header: FC<HeaderProps> = () => {
-  const { t, i18n } = useTranslation();
+  const { i18n } = useTranslation();
   const changeLanguageHandler = (e: any) => {
     const languageValue = e.target.value
     i18n.changeLanguage(languageValue);
   }
 
   const [temp, setTemp] = useState(0)
+  useEffect(() => {setTemp(1)}, [])
   // setTimeout(() => {setTemp(preTemp => preTemp + 1)}, 10000)
 
   return (
