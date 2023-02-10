@@ -1,5 +1,5 @@
 import { Grid } from "@mui/material";
-import React, { FC } from "react";
+import React, { FC, useState } from "react";
 import Footer from "../Footer/Footer";
 import Header from "../Header/Header";
 import MenuBar from "../MenuBar/MenuBar";
@@ -15,9 +15,13 @@ const Home: FC<HomeProps> = () => {
   const { t, i18n } = useTranslation();
   const value = useAppSelector((state) => state.counter.value)
   const dispatch = useAppDispatch()
-  const { data, isFetching } = useFetchBreedsQuery()
+  const [size, setSize] = useState(10)
+  const { data, isFetching } = useFetchBreedsQuery(size)
   const handleClick = () => {
     // dispatch(incremented());
+  }
+  const changeSize = (size: any) => {
+    setSize(size.target.value)
   }
   return (
     <div className={styles.Home} data-testid="Home">
@@ -35,6 +39,11 @@ const Home: FC<HomeProps> = () => {
               <p>
                 <button onClick={handleClick}>Count is {value}</button>
               </p>
+              <select name="sizePage" id="dogs-size" onChange={changeSize}>
+                <option value="5">5</option>
+                <option value="5">10</option>
+                <option value="5">20</option>
+              </select>
               <div>Number of dogs is : {data?.length}</div>
             </Grid>
           </Grid>
