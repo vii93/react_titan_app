@@ -12,3 +12,9 @@ describe('<Home />', () => {
     expect(home).toBeInTheDocument();
   });
 });
+
+describe('Test counting', () => {
+  test('count correct', () => {
+    expect(2 + 2).toBe(4);
+  })
+})

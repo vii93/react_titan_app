@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+.Home {}
+
+.titlesm {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.titlemd {
+  font-size: 32px;
+  font-weight: bold;
+}
+
+/* @media (min-width: 640px) {
+  .title{
+    font-size: 24px;
+    font-weight: bold;
+  }
+} */
+
+/* .test {
+  font-size: 24px;
+  font-weight: 100;
+} */

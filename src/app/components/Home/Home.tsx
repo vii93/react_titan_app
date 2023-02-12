@@ -4,13 +4,15 @@ import Header from '../Header/Header';
 import MenuBar from '../MenuBar/MenuBar';
 import styles from './Home.module.css';
 
-interface HomeProps {}
+interface HomeProps {
+  name?: string
+}
 
-const Home: FC<HomeProps> = () => (
+const Home: FC<HomeProps> = (props) => (
   <div className={styles.Home} data-testid="Home">
     <Header />
     <MenuBar />
-    <div>Home Component</div>
+    <div className={`text-center sm:${styles.titlesm}`}>Home Component {props.name ? props.name : "Guest"}</div>
     <Footer />
   </div>
 );
