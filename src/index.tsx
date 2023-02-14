@@ -4,9 +4,10 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import './i18n';
-import { Provider } from 'react-redux';
+import { Provider, useDispatch } from 'react-redux';
 import { store } from './app/store';
 
+// const dispatch = useDispatch();
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );

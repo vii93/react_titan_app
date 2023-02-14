@@ -32,7 +32,7 @@ const Header: FC<HeaderProps> = () => {
             <option value="en">English</option>
             <option value="vi">Viet Nam</option>
           </select>
-        </Grid>
+        </Grid> 
       </Grid>
     </div>
   );

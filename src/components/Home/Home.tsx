@@ -33,36 +33,8 @@ const Home: FC<HomeProps> = () => {
   }
   return (
     <div className={styles.Home} data-testid="Home">
-      <Grid container spacing={2}>
-        <Grid item xs={12}>
-          <Header />
-        </Grid>
-        <Grid item xs={12}>
-          <Grid container spacing={1}>
-            <Grid item xs={3}>
-              <MenuBar />
-            </Grid>
-            <Grid item xs={9}>
-              <div>{t('title')}</div>
-              <p>
-                <button onClick={handleClick}>Count is {value}</button>
-              </p>
-              <p>
-              <small>hello friend there is what i learn in react</small>
-              </p>
-              <select name="sizePage" id="dogs-size" onChange={changeSize}>
-                <option value="5">5</option>
-                <option value="10">10</option>
-                <option value="20">20</option>
-              </select>
-              <div>Number of dogs is : {data?.length}</div>
-            </Grid>
-          </Grid>
-        </Grid>
-        <Grid item xs={12}>
-          <Footer />
-        </Grid>
-      </Grid>
+      <div>Home</div>
+      
     </div>
   );
 };
